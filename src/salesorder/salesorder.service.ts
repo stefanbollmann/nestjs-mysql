@@ -12,7 +12,7 @@ export class SalesorderService {
 
   findAll(): Promise<Salesorder[]> {
     return this.salesorderRepository.find({
-      select: ['salesOrderId', 'cutomerShortName', 'orderDescription', 'costCenterId'],
+      select: ['Id', 'cutomerShortName', 'orderDescription', 'costCenterId'],
       where: [{ jobDone: 0, orderCompleted: 0 }],
     })
 

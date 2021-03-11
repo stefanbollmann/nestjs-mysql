@@ -7,9 +7,6 @@ export class SalesorderController {
     constructor(private service: SalesorderService) { }
 
     @Get()
-    // test(): string {
-    //     return 'test'
-    // }
     getOpenSalesorders() {
         return this.service.findAll();
     }

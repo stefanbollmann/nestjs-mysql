@@ -5,7 +5,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { SalesorderModule } from './salesorder/salesorder.module';
 
-
 @Module({
   imports: [TypeOrmModule.forRoot(), SalesorderModule],
   controllers: [AppController],
