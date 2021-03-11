@@ -5,14 +5,16 @@ import { Salesorder } from './salesorder.entity';
 
 @Injectable()
 export class SalesorderService {
+  constructor(
+    @InjectRepository(Salesorder)
+    private salesorderRepository: Repository<Salesorder>,
+  ) { }
 
-    constructor(
-        @InjectRepository(Salesorder)
-        private salesorderRepository: Repository<Salesorder>,
-      ) {}
-    
-      findAll(): Promise<Salesorder[]> {
-        return this.salesorderRepository.find();
-      }
+  findAll(): Promise<Salesorder[]> {
+    return this.salesorderRepository.find({
+      select: ['salesOrderId', 'cutomerShortName', 'orderDescription', 'costCenterId'],
+      where: [{ jobDone: 0, orderCompleted: 0 }],
+    })
 
+  }
 }

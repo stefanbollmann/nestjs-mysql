@@ -17,28 +17,38 @@ import {
 // import { TeLagerbewegung } from "./TeLagerbewegung";
 
 // @Index("MTG_Kostenstelle", ["mtgKostenstelle"], {})
-@Entity("au_rechnung", { schema: "mtg_datenbank" })
+@Entity("au_auftrag", { schema: "mtg_datenbank" })
 export class Salesorder {
   @PrimaryGeneratedColumn({ type: "int", name: "Auftrag" })
-  auftrag: number;
+  salesOrderId: number;
 
-  // @Column("varchar", { name: "Art", nullable: true, length: 255 })
-  // art: string | null;
+  @Column("varchar", { name: "kurz", nullable: true, length: 255 })
+  cutomerShortName: string | null;
 
-  @Column("date", { name: "Datum", nullable: true })
-  datum: string | null;
+  @Column("varchar", { name: "Bezeichnung", nullable: true, length: 255 })
+  orderDescription: string | null;
 
-  @Column("int", { name: "Kdnr", nullable: true })
-  kdnr: number | null;
+  @Column("int", { name: "MTG_Kostenstelle", nullable: true })
+  costCenterId: number | null;
 
-  @Column("varchar", { name: "Kurz", nullable: true, length: 255 })
-  kurz: string | null;
+  @Column("tinyint", { name: "Erl", unsigned: true, default: () => "'0'" })
+  jobDone: number;
+
+  @Column("tinyint", { name: "Abgeschlossen", unsigned: true, default: () => "'0'", })
+  orderCompleted: number;
+
+
+  // @Column("date", { name: "datum", nullable: true })
+  // datum: string | null;
+
+  // @Column("int", { name: "Kdnr", nullable: true })
+  // kdnr: number | null;
+
+  // @Column()
+  // Art: string | null;
 
   // @Column("int", { name: "MD_Auftrag", nullable: true })
   // mdAuftrag: number | null;
-
-  // @Column("int", { name: "MTG_Kostenstelle", nullable: true })
-  // mtgKostenstelle: number | null;
 
   // @Column("varchar", { name: "Kostenstelle", nullable: true, length: 255 })
   // kostenstelle: string | null;
@@ -50,8 +60,7 @@ export class Salesorder {
   // })
   // ansprechpartnerKunde: string | null;
 
-  @Column("varchar", { name: "Bezeichnung", nullable: true, length: 255 })
-  bezeichnung: string | null;
+
 
   // @Column("varchar", {
   //   name: "Liefertermin gewünscht",
@@ -73,18 +82,12 @@ export class Salesorder {
   // @Column("varchar", { name: "TRG", nullable: true, length: 255 })
   // trg: string | null;
 
-  // @Column("tinyint", { name: "Erl", unsigned: true, default: () => "'0'" })
-  // erl: number;
+
 
   // @Column("double", { name: "RG", nullable: true, precision: 22 })
   // rg: number | null;
 
-  // @Column("tinyint", {
-  //   name: "Abgeschlossen",
-  //   unsigned: true,
-  //   default: () => "'0'",
-  // })
-  // abgeschlossen: number;
+
 
   // @Column("decimal", { name: "Wert", nullable: true, precision: 10, scale: 2 })
   // wert: string | null;
