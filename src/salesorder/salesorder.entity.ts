@@ -11,16 +11,16 @@ import {
 @Entity("au_auftrag", { schema: "mtg_datenbank" })
 export class Salesorder {
   @PrimaryGeneratedColumn({ type: "int", name: "Auftrag" })
-  Id: number;
+  _id: number;
 
   @Column("varchar", { name: "kurz", nullable: true, length: 255 })
-  cutomerShortName: string | null;
+  customerShortName: string | null;
 
   @Column("varchar", { name: "Bezeichnung", nullable: true, length: 255 })
-  orderDescription: string | null;
+  name: string | null;
 
   @Column("int", { name: "MTG_Kostenstelle", nullable: true })
-  costCenterId: number | null;
+  costcenter: number | null;
 
   @Column("tinyint", { name: "Erl", unsigned: true, default: () => "'0'" })
   jobDone: number;

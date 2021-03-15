@@ -1,10 +1,10 @@
 import { Controller, Get } from '@nestjs/common';
-import { SalesorderService } from './salesorder.service'
+import { SalesOrderService } from './salesorder.service'
 
-@Controller('salesorder')
+@Controller('salesorders')
 export class SalesorderController {
 
-    constructor(private service: SalesorderService) { }
+    constructor(private service: SalesOrderService) { }
 
     @Get()
     getOpenSalesorders() {

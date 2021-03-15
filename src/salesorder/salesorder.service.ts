@@ -4,15 +4,15 @@ import { Repository } from 'typeorm';
 import { Salesorder } from './salesorder.entity';
 
 @Injectable()
-export class SalesorderService {
+export class SalesOrderService {
   constructor(
     @InjectRepository(Salesorder)
-    private salesorderRepository: Repository<Salesorder>,
+    private salesOrderRepository: Repository<Salesorder>,
   ) { }
 
   findAll(): Promise<Salesorder[]> {
-    return this.salesorderRepository.find({
-      select: ['Id', 'cutomerShortName', 'orderDescription', 'costCenterId'],
+    return this.salesOrderRepository.find({
+      select: ['_id', 'customerShortName', 'name', 'costcenter'],
       where: [{ jobDone: 0, orderCompleted: 0 }],
     })
 
