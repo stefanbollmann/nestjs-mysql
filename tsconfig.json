@@ -9,7 +9,24 @@
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "baseUrl": ".",
+    "paths": {
+      "@common/*": [
+        "src/common/*"
+      ],
+      "@config": [
+        "config"
+      ],
+      "@model/*": [
+        "src/model/*"
+      ],
+      "@modules/*": [
+        "src/modules/*"
+      ],
+      "@providers/*": [
+        "src/providers/*"
+      ],
+    },
     "incremental": true
   }
 }

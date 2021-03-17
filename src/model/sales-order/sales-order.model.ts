@@ -9,7 +9,7 @@ import {
 } from "typeorm";
 
 @Entity("au_auftrag", { schema: "mtg_datenbank" })
-export class Salesorder {
+export class SalesOrder {
   @PrimaryGeneratedColumn({ type: "int", name: "Auftrag" })
   _id: number;
 

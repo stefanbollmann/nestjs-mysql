@@ -3,10 +3,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
-import { SalesorderModule } from './salesorder/salesorder.module';
+import { SalesOrderModule } from './salesorder/sales-order.module';
+
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), SalesorderModule],
+  imports: [TypeOrmModule.forRoot(), SalesOrderModule],
   controllers: [AppController],
   providers: [AppService],
 })
